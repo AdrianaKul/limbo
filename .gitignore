@@ -15,7 +15,7 @@
 .waf3-*
 build
 waf_xcode.sh
-exp
+# exp
 src/tests/combinations
 params_*
 benchmark_results
