@@ -63,6 +63,8 @@ from waflib import Logs
 from waflib.Build import BuildContext
 from waflib.Errors import WafError
 
+import waftools
+
 def options(opt):
         opt.load('compiler_cxx boost waf_unit_test')
         opt.load('compiler_c')
@@ -75,6 +77,7 @@ def options(opt):
         opt.load('nlopt')
         opt.load('libcmaes')
         opt.load('xcode')
+        opt.load('cmake', tooldir=waftools.location) # cmake
 
         opt.add_option('--create', type='string', help='create a new exp', dest='create_exp')
         limbo.add_create_options(opt)
@@ -124,6 +127,7 @@ def configure(conf):
         conf.load('nlopt')
         conf.load('libcmaes')
         conf.load('avx')
+        conf.load('cmake') # cmake
 
         # dependencies
         conf.check_boost(lib='serialization filesystem \
